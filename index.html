@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chefes de Cuphead - Guia Completo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Bungee&family=Fredoka+One:wght@400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fredoka One', cursive;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-family: 'Creepster', cursive;
+            font-size: 2rem;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0px #000;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .nav-menu a:hover::before {
+            left: 100%;
+        }
+        
+        .nav-menu a:hover {
+            background: #ff6b6b;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(78, 205, 196, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 195, 113, 0.3) 0%, transparent 50%);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: stars 20s linear infinite;
+        }
+        
+        @keyframes stars {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+        
+        .hero-content h1 {
+            font-family: 'Bungee', cursive;
+            font-size: 4rem;
+            color: #ff6b6b;
+            text-shadow: 4px 4px 0px #000;
+            margin-bottom: 1rem;
+            animation: bounceIn 1s ease-out;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Intro Section */
+        .intro {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .intro h2 {
+            font-family: 'Bungee', cursive;
+            font-size: 2.5rem;
+            color: #4ecdc4;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 0px #000;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Isle Sections */
+        .isle-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .isle-title {
+            font-family: 'Bungee', cursive;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ff6b6b;
+            text-shadow: 3px 3px 0px #000;
+            position: relative;
+        }
+        
+        .isle-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+        
+        .bosses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .boss-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .boss-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .boss-card:hover::before {
+            opacity: 1;
+        }
+        
+        .boss-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+            border-color: #ff6b6b;
+        }
+        
+        .boss-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-shadow: 2px 2px 0px #000;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boss-name {
+            font-family: 'Bungee', cursive;
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0px #000;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boss-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boss-difficulty {
+            display: flex;
+            justify-content: center;
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .star {
+            color: #ffd700;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 0px #000;
+        }
+        
+        .star.empty {
+            color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .boss-type {
+            display: inline-block;
+            background: rgba(78, 205, 196, 0.8);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .boss-type.aerial {
+            background: rgba(255, 195, 113, 0.8);
+        }
+        
+        .boss-type.final {
+            background: rgba(255, 107, 107, 0.8);
+            color: #fff;
+        }
+        
+        .boss-type.dlc {
+            background: rgba(186, 85, 211, 0.8);
+            color: #fff;
+        }
+        
+        /* Filter Buttons */
+        .filter-container {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka One', cursive;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #ff6b6b;
+            border-color: #ff6b6b;
+            transform: translateY(-2px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer h3 {
+            font-family: 'Bungee', cursive;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .isle-title {
+                font-size: 2rem;
+            }
+            
+            .bosses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .boss-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">CUPHEAD</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#intro">Início</a></li>
+                    <li><a href="#isle1">Isle I</a></li>
+                    <li><a href="#isle2">Isle II</a></li>
+                    <li><a href="#isle3">Isle III</a></li>
+                    <li><a href="#hell">Hell</a></li>
+                    <li><a href="#dlc">DLC</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>CHEFES DE CUPHEAD</h1>
+            <p>Explore todos os desafiadores e icônicos chefes do universo de Cuphead, desde Inkwell Isle I até o DLC The Delicious Last Course</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro animate-on-scroll">
+        <h2>Bem-vindo ao Mundo de Cuphead</h2>
+        <p>Cuphead é um jogo de plataforma e tiro que se destaca por seu estilo visual único, inspirado nas animações dos anos 1930. Com sua trilha sonora jazzística e gameplay desafiador, o jogo apresenta uma série de chefes memoráveis que testam as habilidades dos jogadores. Cada chefe possui mecânicas únicas, padrões de ataque complexos e fases múltiplas que exigem precisão e timing perfeito.</p>
+    </section>
+
+    <!-- Filter Buttons -->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterBosses('all')">Todos</button>
+        <button class="filter-btn" onclick="filterBosses('terrestrial')">Terrestres</button>
+        <button class="filter-btn" onclick="filterBosses('aerial')">Aéreos</button>
+        <button class="filter-btn" onclick="filterBosses('final')">Finais</button>
+        <button class="filter-btn" onclick="filterBosses('dlc')">DLC</button>
+    </div>
+
+    <!-- Inkwell Isle I -->
+    <section id="isle1" class="isle-section animate-on-scroll">
+        <h2 class="isle-title">Inkwell Isle I</h2>
+        <div class="bosses-grid">
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🥕</div>
+                <h3 class="boss-name">The Root Pack</h3>
+                <p class="boss-description">Trio de vegetais com ataques únicos: Sal Spudder, Ollie Bulb e Chauncey Chantenay</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🟢</div>
+                <h3 class="boss-name">Goopy Le Grande</h3>
+                <p class="boss-description">Massa de meleca azul que cresce e se transforma durante a batalha</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="aerial">
+                <div class="boss-avatar">🌙</div>
+                <h3 class="boss-name">Hilda Berg</h3>
+                <p class="boss-description">Zeppelin lunar com ataques de constelação e fases aéreas dinâmicas</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type final">Final</span>
+            </div>
+            
+            <div class="boss-card" data-type="final">
+                <div class="boss-avatar">😈</div>
+                <h3 class="boss-name">The Devil</h3>
+                <p class="boss-description">O chefe final supremo com múltiplas formas demoníacas e ataques infernais</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type final">Final</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DLC - The Delicious Last Course -->
+    <section id="dlc" class="isle-section animate-on-scroll">
+        <h2 class="isle-title">DLC - The Delicious Last Course</h2>
+        <div class="bosses-grid">
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">🗿</div>
+                <h3 class="boss-name">Glumstone the Giant</h3>
+                <p class="boss-description">Gigante de pedra com gnomos internos e ataques sísmicos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+            
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">❄️</div>
+                <h3 class="boss-name">Mortimer Freeze</h3>
+                <p class="boss-description">Mago do gelo com ataques congelantes e transformações geladas</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+            
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">🤠</div>
+                <h3 class="boss-name">Esther Winchester</h3>
+                <p class="boss-description">Cowgirl salsicheira com revólveres e ataques do velho oeste</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+            
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">✈️</div>
+                <h3 class="boss-name">The Howling Aces</h3>
+                <p class="boss-description">Esquadrão de cães pilotos com aviões de guerra e ataques aéreos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+            
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">🍺</div>
+                <h3 class="boss-name">Moonshine Mob</h3>
+                <p class="boss-description">Gangue de insetos contrabandistas com ataques de bebida ilegal</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+            
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">👨‍🍳</div>
+                <h3 class="boss-name">Chef Saltbaker</h3>
+                <p class="boss-description">Chef malévolo e chefe final do DLC com ataques culinários mortais</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+            
+            <div class="boss-card" data-type="dlc">
+                <div class="boss-avatar">😇</div>
+                <h3 class="boss-name">The Angel and Demon</h3>
+                <p class="boss-description">Chefe secreto opcional com batalha celestial vs infernal</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type dlc">DLC</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>Studio MDHR</h3>
+        <p>Cuphead © Studio MDHR Entertainment Inc. Todos os direitos reservados.</p>
+        <p>Esta página é um tributo não oficial ao incrível trabalho da equipe do Cuphead.</p>
+        <div class="social-links">
+            <a href="#" title="Steam">🎮</a>
+            <a href="#" title="Xbox">🎯</a>
+            <a href="#" title="Website">🌐</a>
+            <a href="#" title="Twitter">🐦</a>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Filter functionality
+        function filterBosses(type) {
+            const cards = document.querySelectorAll('.boss-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (type === 'all' || card.dataset.type === type) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover sound effect simulation
+        document.querySelectorAll('.boss-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                // Visual feedback only - no actual sound
+                this.style.boxShadow = '0 25px 50px rgba(255, 107, 107, 0.4)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Dynamic background particles
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(255, 255, 255, 0.1)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '-10px';
+            particle.style.zIndex = '-1';
+            
+            document.body.appendChild(particle);
+            
+            const duration = Math.random() * 3000 + 2000;
+            particle.animate([
+                { transform: 'translateY(0px)', opacity: 1 },
+                { transform: `translateY(${window.innerHeight + 10}px)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'linear'
+            }).onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 300);
+
+        // Mobile menu toggle (for responsive design)
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type aerial">Aéreo</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🌺</div>
+                <h3 class="boss-name">Cagney Carnation</h3>
+                <p class="boss-description">Flor gigante com ataques de sementes e espinhos mortais</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🐸</div>
+                <h3 class="boss-name">Ribby and Croaks</h3>
+                <p class="boss-description">Dupla de sapos boxeadores com máquina caça-níqueis mortal</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inkwell Isle II -->
+    <section id="isle2" class="isle-section animate-on-scroll">
+        <h2 class="isle-title">Inkwell Isle II</h2>
+        <div class="bosses-grid">
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🍭</div>
+                <h3 class="boss-name">Baroness Von Bon Bon</h3>
+                <p class="boss-description">Castelo de doces com mini-chefes aleatórios a cada batalha</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="aerial">
+                <div class="boss-avatar">🧞</div>
+                <h3 class="boss-name">Djimmi The Great</h3>
+                <p class="boss-description">Gênio com poderes mágicos e múltiplas transformações</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type aerial">Aéreo</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🤡</div>
+                <h3 class="boss-name">Beppi The Clown</h3>
+                <p class="boss-description">Palhaço malévolo com ataques de parque de diversões</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🐉</div>
+                <h3 class="boss-name">Grim Matchstick</h3>
+                <p class="boss-description">Dragão de três cabeças com ataques de fogo e plataformas móveis</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="aerial">
+                <div class="boss-avatar">🦅</div>
+                <h3 class="boss-name">Wally Warbles</h3>
+                <p class="boss-description">Pássaro gigante com casa na árvore e filhote rebelde</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star empty">★</span>
+                </div>
+                <span class="boss-type aerial">Aéreo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inkwell Isle III -->
+    <section id="isle3" class="isle-section animate-on-scroll">
+        <h2 class="isle-title">Inkwell Isle III</h2>
+        <div class="bosses-grid">
+            <div class="boss-card" data-type="aerial">
+                <div class="boss-avatar">🐝</div>
+                <h3 class="boss-name">Rumor Honeybottoms</h3>
+                <p class="boss-description">Abelha rainha com enxame de abelhas e plataformas de favos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type aerial">Aéreo</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🏴‍☠️</div>
+                <h3 class="boss-name">Captain Brineybeard</h3>
+                <p class="boss-description">Pirata com navio, tentáculos e canhões em batalha naval</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🎭</div>
+                <h3 class="boss-name">Sally Stageplay</h3>
+                <p class="boss-description">Atriz teatral com múltiplos atos e cenários dramáticos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🐭</div>
+                <h3 class="boss-name">Werner Werman</h3>
+                <p class="boss-description">Rato alemão com tanque de lata e ataques explosivos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+            
+            <div class="boss-card" data-type="aerial">
+                <div class="boss-avatar">🤖</div>
+                <h3 class="boss-name">Dr. Kahl's Robot</h3>
+                <p class="boss-description">Robô gigante com múltiplas partes e ataques tecnológicos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type aerial">Aéreo</span>
+            </div>
+            
+            <div class="boss-card" data-type="terrestrial">
+                <div class="boss-avatar">🧜‍♀️</div>
+                <h3 class="boss-name">Cala Maria</h3>
+                <p class="boss-description">Sereia gigante com poderes de Medusa e ataques aquáticos</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <span class="boss-type">Terrestre</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inkwell Hell -->
+    <section id="hell" class="isle-section animate-on-scroll">
+        <h2 class="isle-title">Inkwell Hell</h2>
+        <div class="bosses-grid">
+            <div class="boss-card" data-type="final">
+                <div class="boss-avatar">🎲</div>
+                <h3 class="boss-name">King Dice</h3>
+                <p class="boss-description">Chefe dos cassinos com mini-chefes aleatórios e jogos de azar</p>
+                <div class="boss-difficulty">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★
